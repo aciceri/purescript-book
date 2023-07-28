@@ -13,6 +13,7 @@
             nodePackages_latest.purescript-language-server
             spago
             purescript
+            nodejs_20
           ];
         };
       };
