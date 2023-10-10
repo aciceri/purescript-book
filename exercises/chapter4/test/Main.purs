@@ -18,7 +18,6 @@ main :: Effect Unit
 main =
   runTest do
     runChapterExamples
-    {-  Move this block comment starting point to enable more tests
     suite "Exercise Group - Recursion" do
       suite "Exercise - isEven" do
         test "0 is even" do
@@ -63,6 +62,7 @@ main =
         test "Calculate squares" do
           Assert.equal [ 0.0, 1.0, 4.0, 9.0, 10000.0 ]
             $ squared [ 0.0, 1.0, 2.0, 3.0, 100.0 ]
+
       suite "Exercise - keepNonNegative" do
         test "Do nothing with empty array" do
           Assert.equal []
@@ -121,6 +121,8 @@ main =
           Assert.equal (sort [ [ 3, 4, 5 ], [ 5, 12, 13 ], [ 6, 8, 10 ] ])
             $ sort
             $ triples 13
+                        {-  Move this block comment starting point to enable more tests
+
       suite "Exercise - primeFactors" do
         let
           primeFactorsTest :: Int -> Array Int -> _
