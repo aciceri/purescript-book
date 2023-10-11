@@ -1,12 +1,12 @@
 module Test.MySolutions where
 
 import Prelude
-import Data.Semigroup ((<>))
-import Data.Array (head, length, tail, filter, (..), last)
+
+import Control.Alternative (guard)
+import Data.Array (filter, foldl, foldr, head, length, tail, (..))
 import Data.Int (rem)
 import Data.Maybe (fromMaybe)
 import Test.Examples (factorsV3)
-import Control.Alternative (guard)
 
 
 abs n = if n < 0 then -n else n
@@ -70,3 +70,17 @@ primeFactors n = if n == 1
                    g = fromMaybe 0 $ head ds
                    in [g] <> primeFactors (n `div` g)
                    
+allTrue :: Array Boolean -> Boolean
+allTrue = foldr (&&) true
+
+fibTailRec :: Int -> Int
+fibTailRec n = let  
+  fibWrapped :: Int -> Int -> Int -> Int
+  fibWrapped 0 a _ = a
+  fibWrapped 1 _ b = b
+  
+  fibWrapped m a b = fibWrapped (m - 1) b (a + b)
+in fibWrapped n 0 1
+
+reverse :: forall a. Array a -> Array a
+reverse = foldl (\xs x -> [ x ] <> xs) []
